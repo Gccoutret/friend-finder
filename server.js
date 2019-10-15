@@ -1,19 +1,16 @@
-require("dotenv").config()
 var express = require("express");
-var path = require("path");
-var mysql = require("mysql");
-
 
 var app = express();
-var PORT = 3306;
+var PORT = 8080;
 
-var connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password:process.env.pass,
-  database: "friends_db"
-})
 
+require('./app/routing/htmlRoutes.js')(app);
+require('./app/routing/apiRoutes.js')(app);
+
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+app.listen(PORT, function() {
+  console.log("App listening on PORT " + PORT);
+});

@@ -1,0 +1,15 @@
+form{
+  text-align: center;
+  margin: 0 auto;
+  
+}
+body{
+  margin: 0 auto;
+  background-color:grey;
+}
+
+.nameform{
+width: 25%;
+margin: 0 auto;
+text-align: center;
+}
